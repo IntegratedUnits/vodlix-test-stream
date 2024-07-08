@@ -5,7 +5,7 @@ SERVICE_NAME="vodlix_stream.service"
 SCRIPT_NAME="vodlix_stream.sh"
 INSTALL_DIR="/usr/local/bin"
 SYSTEMD_DIR="/etc/systemd/system"
-HLS_DIR="/var/www/html/stream/live_stream_%v"
+HLS_DIR="/var/www/html/vodlix_test_stream/live_stream_%v"
 
 # Ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
