@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ffmpeg -f lavfi -i color=color=white:s=1920x1080:r=30 -vf "drawtext=text='%{localtime\:%Y-%m-%d %H\:%M\:%S %Z}':x=(w-tw)/2:y=(h-th)/2:fontsize=70:fontcolor=black, drawtext=text='ABR 360p/720p/1080p':x=(w-tw)/2:y=(h-th)/2+80:fontsize=50:fontcolor=black" -f hls -hls_time 30 -hls_list_size 5 -hls_flags delete_segments -var_stream_map "v:0 v:1 v:2" -master_pl_name master.m3u8 -c:v libx264 -b:v:0 800k -s:v:0 640x360 -b:v:1 2800k -s:v:1 1280x720 -b:v:2 5000k -s:v:2 1920x1080 -preset fast -hls_segment_filename "/var/www/html/live_stream_%v/segment_%03d.ts" "/var/www/html/live_stream_%v/stream.m3u8"
